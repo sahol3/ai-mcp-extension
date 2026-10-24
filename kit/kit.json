@@ -1,0 +1,18 @@
+{
+  "kit": "ai-studio-mcp",
+  "title": "AI Studio MCP Bridge",
+  "version": "2026.10.19",
+  "engine": "core v36 + gemini/flow/chatgpt page modules",
+  "server": "server/src/index.js",
+  "daemon": "server/src/daemon.js",
+  "selftest": "server/src/selftest.js",
+  "keep_open": null,
+  "node_min": 22,
+  "env_prefix": "AI_MCP",
+  "default_port": 8791,
+  "site": "https://gemini.google.com/app (and flow.google.com, chatgpt.com)",
+  "first_tool": "ai_status",
+  "profiles": {
+    "default": { "name": "ai-studio", "port": 8791, "data_dir": "~/.ai-mcp", "browser": "opera" }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "manifest_version": 3,
+  "name": "AI Studio MCP Bridge",
+  "version": "1.0.0",
+  "description": "Exposes the logged-in Gemini, Google Flow and ChatGPT tabs to local AI agents over MCP: prompt, stream, read, edit, upload, generate, and drive every control in the UI.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "alarms",
+    "downloads",
+    "debugger"
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*",
+    "https://labs.google/*",
+    "https://flow.google.com/*",
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://aisandbox-pa.googleapis.com/*",
+    "https://*.googleusercontent.com/*",
+    "https://*.gstatic.com/*",
+    "https://flow-content.google/*",
+    "https://*.oaiusercontent.com/*",
+    "https://*.oaistatic.com/*",
+    "https://files.oaiusercontent.com/*",
+    "http://127.0.0.1/*",
+    "http://localhost/*"
+  ],
+  "optional_permissions": [
+    "activeTab"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/sw.js"
+  },
+  "action": {
+    "default_title": "AI Studio MCP Bridge",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gemini.google.com/*"
+      ],
+      "js": [
+        "page/core.js",
+        "page/gemini.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://labs.google/*",
+        "https://flow.google.com/*"
+      ],
+      "js": [
+        "page/core.js",
+        "page/flow.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "page/core.js",
+        "page/chatgpt.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://labs.google/*",
+    "https://flow.google.com/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "content/relay.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED",
+      "all_frames": false
+    }
+  ]
+}

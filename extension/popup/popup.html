@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>AI Studio MCP Bridge</h1>
+    <label class="switch">
+      <input type="checkbox" id="enabled">
+      <span>Bridge</span>
+    </label>
+  </header>
+
+  <section class="row">
+    <span class="label">Daemon</span>
+    <span id="ws" class="pill">…</span>
+  </section>
+  <div class="endpoint" id="endpoint">ws://127.0.0.1:8791</div>
+
+  <section id="sites"></section>
+
+  <section class="config">
+    <div class="fields">
+      <label>Host <input id="host" spellcheck="false"></label>
+      <label>Port <input id="port" type="number" min="1" max="65535"></label>
+      <label>Token <input id="token" spellcheck="false" placeholder="(optional)"></label>
+    </div>
+    <button id="save">Save &amp; reconnect</button>
+  </section>
+
+  <section class="actions">
+    <button id="reinject">Re-inject bridges</button>
+    <button id="screenshots">Enable screenshots</button>
+  </section>
+
+  <p class="hint" id="hint"></p>
+  <script src="popup.js"></script>
+</body>
+</html>

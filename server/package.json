@@ -1,0 +1,22 @@
+{
+  "name": "ai-studio-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server that drives the logged-in Gemini, Google Flow and ChatGPT tabs in the user's browser.",
+  "bin": {
+    "ai-studio-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "daemon": "node src/daemon.js",
+    "selftest": "node src/selftest.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

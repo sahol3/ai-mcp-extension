@@ -1,0 +1,21 @@
+{
+  "name": "ai-mcp-extension",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser extension + MCP server exposing Gemini, Google Flow and ChatGPT to local AI agents.",
+  "scripts": {
+    "install-server": "npm --prefix server install",
+    "daemon": "node server/src/daemon.js",
+    "icons": "node scripts/make-icons.mjs",
+    "selftest": "node server/src/selftest.js",
+    "mcp-check": "node scripts/mcp-check.mjs",
+    "e2e": "node scripts/e2e.mjs",
+    "browser": "node scripts/launch-browser.mjs",
+    "verify": "node scripts/verify-live.mjs",
+    "call": "node scripts/call.mjs"
+  },
+  "devDependencies": {
+    "ws": "^8.18.0"
+  }
+}
